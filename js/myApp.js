@@ -19,13 +19,13 @@ angular.module('myApp', ['ngMessages', 'ngAnimate'])
       return $sce.trustAsResourceUrl(src);
     };
 
-    //Wait function to defer for 0.5 seconds//
+    //Wait function to defer for 1 seconds//
     function wait() {
         var defer = $q.defer();
 
         $timeout(function(){
             defer.resolve();
-        }, 500);
+        }, 1000);
         return defer.promise;
     }
 
@@ -35,6 +35,8 @@ angular.module('myApp', ['ngMessages', 'ngAnimate'])
         
         //If Statement to see if form is valid //
         if( this.userInputForm.$valid ) {
+            //hide results //
+            vm.results = false;
             //display loading //
             vm.loading = true;
             //create searchTag //
@@ -59,6 +61,7 @@ angular.module('myApp', ['ngMessages', 'ngAnimate'])
             .then(function(response) {
                 //wait function gets called and then promise to display the pictures //
                 wait().then(function(){
+                    vm.results = true;
                     vm.loading = false;
                     vm.results = response.data.photos.photo;
                     vm.pictureUrl1 = "https://farm";
@@ -71,7 +74,8 @@ angular.module('myApp', ['ngMessages', 'ngAnimate'])
             function(response) {
                 alert("We could not perform the Flickr-Search. Please try again");
             });
-            //Empty Input field //
+            //Bind Input to display & empty Input field //
+            vm.displayTag = vm.searchTag;
             vm.searchTag ="";
         } else {
             alert("Please enter a valid search query");

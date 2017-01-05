@@ -15,11 +15,12 @@
 
 	<body ng-app="myApp" ng-controller="MyCtrl as vm">
 		<!-- TITLE -->
-		<h1>Flickr Searcher</h1>
+		<div class=masthead>
+			<h1>Flickr Searcher</h1>
+		</div>
 		
 		<!-- SEARCH WRAPPER -->
 		<section class="searchWrapper">
-		
 			<!-- FORM -->
 			<form class="inputForm" name="vm.userInputForm" novalidate ng-submit="vm.searchFlickr(vm.searchTag)">
 				<input class="searchBox" type="text" name="searchTag" ng-model="vm.searchTag" required></div>
@@ -27,7 +28,7 @@
 			</form>			
 		</section>
 
-		<section ng-show="vm.loading">
+		<section class="loading" ng-show="vm.loading">
 			<div>
 				<h4>Loading</h4>
 			</div>
@@ -35,10 +36,10 @@
 
 		<!-- RESULT WRAPPER -->
 		<section class="resultWrapper">
-			<div class="results" ng-if="vm.results">
-        		<h2>We found {{ vm.results.length }} results for {{ vm.searchTag }}</h2>
- 				<div ng-repeat="result in vm.results">
-          			<img ng-src="{{ vm.trustSrc(vm.pictureUrl1 + result.farm + vm.pictureUrl2 + result.server + vm.pictureUrl3 + result.id + vm.pictureUrl4 + result.secret + vm.pictureUrl5) }}" frameborder="0" width="480" height="390"></img>
+			<div class="results" ng-show="vm.results">
+        		<h3>We found {{ vm.results.length }} results for {{ vm.displayTag }}:</h2>
+ 				<div class="imageWrapper" ng-repeat="result in vm.results">
+          			<img ng-src="{{ vm.trustSrc(vm.pictureUrl1 + result.farm + vm.pictureUrl2 + result.server + vm.pictureUrl3 + result.id + vm.pictureUrl4 + result.secret + vm.pictureUrl5) }}" frameborder="0" width="380" height="310"></img>
 				</div>
 			</div>
 		</section>

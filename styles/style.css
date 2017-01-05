@@ -8,31 +8,103 @@ html{
 }
 
 body{
-	margin-top: 3em;
 	height: 100%;
 }
 
 h1 {
 	font-size: 5em;
 	text-align: center;
-	margin-bottom: 1em;
+	padding-top: 0.5em;
+	font-weight: 900;
+	letter-spacing: -2px;
+
 }
 
-button, .button {
-    background-color: darkgrey;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    font-size: 16px;
-    cursor: pointer;
-    font-family: 'Open Sans', sans-serif;
+h3 {
+	font-size: 2em;
+	margin: 1em;
+	font-weight: 600;
 }
 
+h4 {
+	text-align: center;
+	margin-top: 2em;
+	color: #ff0084;
+	font-size: 2em;
+	font-style: italic;
+}
+
+img {
+	margin: 0.5em;
+}
 
 /*---------------------------------------------------------------------------------
    Main Wrappers
 ---------------------------------------------------------------------------------*/
 
+.masthead {
+	width: 100%;
+	height: 10em;
+	background-color: #ff0084;
+}
+
+.searchWrapper {
+	margin: 1.5em;
+}
+
 .inputForm {
 	text-align: center;
+}
+
+.searchBox {
+	font-family: 'Open Sans', sans-serif;
+	padding-bottom: 0.4em;
+	font-size: 2em;
+
+}
+
+.submitButton {
+    background: #128fdc;
+    border-color: #128fdc;
+    color: white;
+    padding: 19px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    border-style: none;
+    font-family: 'Open Sans', sans-serif;
+}	
+
+
+.results {
+	margin: 5em auto;
+	text-align: center;
+}
+
+.imageWrapper {
+	display: inline;
+
+}
+
+/*---------------------------------------------------------------------------------
+   ANIMATION
+---------------------------------------------------------------------------------*/
+
+img {
+	animation: 1.0s rotateIn;
+}
+
+@keyframes rotateIn {
+	0% {opacity: 0; transform:rotate(0deg);}
+	100%{opacity: 1; transform:rotate(360deg);}
+}
+
+h4 {
+  animation: disco 1s linear  infinite;
+}
+
+@keyframes disco {
+  50% {
+    opacity: 0.0;
+  }
 }
