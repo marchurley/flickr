@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Flickr Searcher</title>
+		<!-- Meta Tags -->
+		<meta charset="utf-8"/>
+		
+		<!-- Stylesheets -->
+		<link rel="stylesheet" href="styles/reset.css">
+		<link rel="stylesheet" href="styles/style.css"/> 
+		
+		<!-- Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	</head>
+
+	<body ng-app="myApp" ng-controller="MyCtrl as vm">
+		<!-- TITLE -->
+		<h1>Flickr Searcher</h1>
+		
+		<!-- SEARCH WRAPPER -->
+		<section class="searchWrapper">
+		
+			<!-- FORM -->
+			<form class="inputForm" name="vm.userInputForm" novalidate ng-submit="vm.searchFlickr(vm.searchTag)">
+				<input class="searchBox" type="text" name="searchTag" ng-model="vm.searchTag" required></div>
+				<input class="submitButton" type="submit">
+			</form>			
+		</section>
+
+
+		<!-- RESULT WRAPPER -->
+		<section class="resultWrapper">
+			<div class="results" ng-if="vm.results">
+        		<h2>We found {{ vm.results.length }} results for {{ vm.searchTag }}</h2>
+ 				<div ng-repeat="result in vm.results">
+          			<img ng-src="{{ vm.trustSrc(vm.pictureUrl1 + result.farm + vm.pictureUrl2 + result.server + vm.pictureUrl3 + result.id + vm.pictureUrl4 + result.secret + vm.pictureUrl5) }}" frameborder="0" width="480" height="390"></img>
+				</div>
+			</div>
+		</section>
+
+
+		<!-- JavaScript -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		<script type="text/javascript" src="js/myApp.js"></script>
+		<!-- Load the angular-messages module and add in .js application as dependency -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
+		<!-- Load the angular-animate module and add in .js application as dependency -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+
+		
+	</body> 
+
+</html>
