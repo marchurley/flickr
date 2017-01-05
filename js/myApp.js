@@ -48,6 +48,7 @@ angular.module('myApp', ['ngMessages', 'ngAnimate'])
                 method: 'flickr.photos.search',
                 api_key: "a04edf71f1fae0d976c341d324cae2f4",
                 tags: searchTag,
+                per_page: 500,
                 format: 'json',
                 nojsoncallback: 1
             };
